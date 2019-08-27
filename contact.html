@@ -229,6 +229,35 @@
       }
     });
   });
+
+  function setSessionURL() {
+      var sessionField = document.querySelector("#sessionrecording");
+
+      function callback() {
+        FM.getCurrentSessionURL(function(status, url) {
+              sessionField.value = url;
+              console.log("### Session Recording URL #### ", url);
+        });
+      }
+
+      if(!FM || !FM.getCurrentSessionURL) {
+          window.setTimeout(setSessionURL, 500);
+          return;
+      }
+
+      callback();
+
+  }
+
+
+  if(document.readyState === "completed") {
+      setSessionURL();
+  } else {
+    window.addEventListener("load", function() {
+      setSessionURL();
+    });
+  }
+
   </script>
 
   </body>
