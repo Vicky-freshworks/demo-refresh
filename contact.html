@@ -93,16 +93,16 @@
           	<h2 class="text-center">If you got any questions <br>please do not hesitate to send us a message</h2>
             <form name="contactForm" action="#" class="bg-light p-5 contact-form" id="refresh-contactform">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" name ="name">
+                <input type="text" class="form-control" placeholder="Your Name" name ="name" id="name">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Your Email" name="email" id="email">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject" name="subject">
+                <input type="text" class="form-control" placeholder="Subject" name="subject" id="subject">
               </div>
               <div class="form-group">
-                <textarea cols="30" rows="7" class="form-control" placeholder="Message" name="message"></textarea>
+                <textarea cols="30" rows="7" class="form-control" placeholder="Message" name="message" id="message"></textarea>
               </div>
               <div class="form-group" style="display:none">
                 <input type="text" class="form-control" placeholder="Your Email" name="sessionrecording" id="sessionrecording">
@@ -221,6 +221,17 @@
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var getEmail= $( "#email" ).val();
       if(regex.test(getEmail)){
+
+        var userValues = {
+           "subject": $( "#subject" ).val(),
+           "name":$( "#name" ).val(),
+           "sessionrecording":$( "#sessionrecording" ).val(),
+           "message":$( "#message" ).val()
+           "email": $( "#email" ).val()
+         };
+         window.FMApi = window.FMApi || [];
+         window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289FE5F9EDA270E55BDEE914CE992724A79FF9FE58FF911EDD398FFBF237B0D765314EF148FC71C477BEDB742FB58FAAC27E", userValues);
+
         alert("success");
       }
       else{
