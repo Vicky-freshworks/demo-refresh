@@ -230,12 +230,12 @@
            "email": $( "#email" ).val()
          };
          window.FMApi = window.FMApi || [];
+         console.log(userValues,"userValues--->")
          window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289FE5F9EDA270E55BDEE914CE992724A79FF9FE58FF911EDD398FFBF237B0D765314EF148FC71C477BEDB742FB58FAAC27E", userValues);
 
-        alert("success");
       }
       else{
-        alert("Not success");
+        console.log("Not success");
         event.preventDefault();
       }
     });
