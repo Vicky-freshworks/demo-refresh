@@ -26,7 +26,26 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .success-message {
+    position: absolute;
+    top: 110px;
+    background: #fff;
+    padding: 270px 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s ease;
+}
+.show-success-message{
+  opacity: 1;
+  visibility: visible;
 
+}
+    </style>
   </head>
   <body>
 
@@ -53,7 +72,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <!-- <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -62,64 +81,19 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 		<section class="ftco-section contact-section">
       <div class="container">
-        <div class="row d-flex mb-5 contact-info justify-content-center">
-        	<div class="col-md-8">
-        		<div class="row mb-5">
-		          <div class="col-md-4 text-center py-4">
-		          	<div class="icon">
-		          		<span class="icon-map-o"></span>
-		          	</div>
-		            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-		          </div>
-		          <div class="col-md-4 text-center border-height py-4">
-		          	<div class="icon">
-		          		<span class="icon-mobile-phone"></span>
-		          	</div>
-		            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-		          </div>
-		          <div class="col-md-4 text-center py-4">
-		          	<div class="icon">
-		          		<span class="icon-envelope-o"></span>
-		          	</div>
-		            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-		          </div>
-		        </div>
+
+        <div class="row block-9 justify-content-center mb-5">
+          <div class="col-md-8 mb-md-5" style="margin-top: 150px;">
+          	<h2 class="text-center" style="margin-bottom: 0px;">Thank you for your interest in Uptown! </h2>
+              <p class="text-center">Someone from our team will be with you shortly.</p>
+              <a class="text-center" style="display: block; "href="/">Take me to the homepage </a>
           </div>
         </div>
-        <div class="row block-9 justify-content-center mb-5">
-          <div class="col-md-8 mb-md-5">
-          	<h2 class="text-center">If you got any questions <br>please do not hesitate to send us a message</h2>
-            <form name="contactForm"  action="thankyou.html" class="bg-light p-5 contact-form" id="refresh-contactform">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" name ="name" id="name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email" name="email" id="email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject" name="subject" id="subject">
-              </div>
-              <div class="form-group">
-                <textarea cols="30" rows="7" class="form-control" placeholder="Message" name="message" id="message"></textarea>
-              </div>
-              <div class="form-group" style="display:none">
-                <input type="text" class="form-control" placeholder="Your Email" name="sessionrecording" id="sessionrecording">
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" name="submit">
-              </div>
-            </form>
 
-        </div>
-        <div class="row justify-content-center">
-        	<div class="col-md-10">
-        		<div id="map" class="bg-white"></div>
-        	</div>
-        </div>
       </div>
     </section>
 
@@ -216,59 +190,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
-  $( document ).ready(function() {
-    $( "#refresh-contactform" ).submit(function( event ) {
-      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      var getEmail= $( "#email" ).val();
-      if(regex.test(getEmail)){
-        var userValues = {
-           "subject": $( "#subject" ).val(),
-           "name":$( "#name" ).val(),
-           "sessionrecording":$( "#sessionrecording" ).val(),
-           "message":$( "#message" ).val(),
-           "email": $( "#email" ).val()
-         };
-         window.FMApi = window.FMApi || [];
-         console.log(userValues,"userValues--->")
-         window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289FE5F9EDA270E55BDEE914CE992724A79FF9FE58FF911EDD398FFBF237B0D765314EF148FC71C477BEDB742FB58FAAC27E", userValues);
-      }
-      else{
-        console.log("Not success");
-        event.preventDefault();
-      }
-    });
-  });
 
-  function setSessionURL() {
-      var sessionField = document.querySelector("#sessionrecording");
-
-      function callback() {
-        FM.getCurrentSessionURL(function(status, url) {
-              sessionField.value = url;
-              console.log("### Session Recording URL #### ", url);
-        });
-      }
-
-      if(!FM || !FM.getCurrentSessionURL) {
-          window.setTimeout(setSessionURL, 500);
-          return;
-      }
-
-      callback();
-
-  }
-
-
-  if(document.readyState === "completed") {
-      setSessionURL();
-  } else {
-    window.addEventListener("load", function() {
-      setSessionURL();
-    });
-  }
-
-  </script>
 
   </body>
 </html>
