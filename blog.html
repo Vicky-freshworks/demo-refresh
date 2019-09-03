@@ -92,7 +92,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -107,7 +106,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_2.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -122,7 +120,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_3.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -137,7 +134,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_4.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -153,7 +149,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_5.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -168,7 +163,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_6.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -183,7 +177,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_7.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -198,7 +191,6 @@
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_8.jpg');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
             </div>
           </div>
@@ -207,12 +199,12 @@
           <div class="col text-center">
             <div class="col-md-12 text-center heading-section ftco-animate fadeInUp ftco-animated">
           	<span class="subheading">Subscribe</span>
-            <h2 class="mb-3">Subscribe for blog updates</h2>
+            <h2 class="mb-3">Receive a copy of the blogs in your inbox!</h2>
           </div>
             <form name="contactForm"  id="refresh-subscribeform">
               <div class="col-md-5" style="margin: 0 auto;">
                 <input type="email" class="form-control col-md-9" id="email" placeholder="Enter email address">
-                <button class="btn px-4 btn-primary col-md-3" id="subscribe">Subscribe</button>
+                <button class="btn px-4 btn-primary col-md-3" id="subscribe">Get PDF</button>
                 <div class="form-group" style="display:none">
                   <input type="text" class="form-control" placeholder="Your Email" name="sessionrecording" id="sessionrecording">
                 </div>
@@ -333,7 +325,7 @@
   <script src="js/main.js"></script>
   <script>
   $( document ).ready(function() {
-    $( "#refresh-subscribeform" ).submit(function( event ) {
+    $( "#subscribe" ).click(function( event ) {
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var getEmail= $( "#email" ).val();
       if(regex.test(getEmail)){
@@ -344,6 +336,7 @@
          window.FMApi = window.FMApi || [];
          console.log(userValues,"userValues--->")
          window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289F05DCDFCEE8577CE2934DA6DA408D0DCA248010477E5A7A16833305B300713D627F6E4CC2448987FFA70360E613412D65", userValues);
+         event.preventDefault();
       }
       else{
         console.log("Not success");
