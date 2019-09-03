@@ -201,7 +201,7 @@
           	<span class="subheading">Subscribe</span>
             <h2 class="mb-3">Receive a copy of the blogs in your inbox!</h2>
           </div>
-            <form name="contactForm"  id="refresh-subscribeform">
+            <form name="contactForm"  id="refresh-subscribeform" >
               <div class="col-md-5" style="margin: 0 auto;">
                 <input type="email" class="form-control col-md-9" id="email" placeholder="Enter email address">
                 <button class="btn px-4 btn-primary col-md-3" id="subscribe">Get PDF</button>
@@ -336,7 +336,9 @@
          window.FMApi = window.FMApi || [];
          console.log(userValues,"userValues--->")
          window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289F05DCDFCEE8577CE2934DA6DA408D0DCA248010477E5A7A16833305B300713D627F6E4CC2448987FFA70360E613412D65", userValues);
-         event.preventDefault();
+         $('.refresh-subscribeform').submit();
+         return false;
+
       }
       else{
         console.log("Not success");
