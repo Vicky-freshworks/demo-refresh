@@ -40,6 +40,25 @@
     padding-bottom: 15px;
     padding-top: 14px;
     }
+    .tq-message {
+    margin: 0 auto;
+    padding: 30px 10px;
+    position: absolute;
+    left: 29%;
+    top: 90px;
+    background: #e86ed0;
+    border-radius: 5px;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s ease;
+}
+.showMessage{
+  opacity: 1;
+  visibility: visible;
+  transition: .5s ease;
+
+}
     </style>
   </head>
   <body>
@@ -210,6 +229,9 @@
                 </div>
               </div>
             </form>
+            <div class="tq-message col-md-5">
+              <span>Thank you! Watch out for the blog PDF in your inbox.</span>
+            </div>
           </div>
         </div>
         <div class="row mt-5">
@@ -337,6 +359,7 @@
          console.log(userValues,"userValues--->")
          window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289F05DCDFCEE8577CE2934DA6DA408D0DCA248010477E5A7A16833305B300713D627F6E4CC2448987FFA70360E613412D65", userValues);
          $('.refresh-subscribeform').submit();
+         $('.tq-message').addClass('showMessage');
          return false;
 
       }
