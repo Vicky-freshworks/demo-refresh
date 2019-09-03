@@ -27,6 +27,20 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    #email{
+      float: left;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    }
+    #subscribe{
+      border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-bottom: 15px;
+    padding-top: 14px;
+    }
+    </style>
   </head>
   <body>
 
@@ -191,6 +205,23 @@
         </div>
         <div class="row mt-5">
           <div class="col text-center">
+            <div class="col-md-12 text-center heading-section ftco-animate fadeInUp ftco-animated">
+          	<span class="subheading">Subscribe</span>
+            <h2 class="mb-3">Subscribe for blog updates</h2>
+          </div>
+            <form name="contactForm"  id="refresh-subscribeform">
+              <div class="col-md-5" style="margin: 0 auto;">
+                <input type="email" class="form-control col-md-9" id="email">
+                <button class="btn px-4 btn-primary col-md-3" id="subscribe">Subscribe</button>
+                <div class="form-group" style="display:none">
+                  <input type="text" class="form-control" placeholder="Your Email" name="sessionrecording" id="sessionrecording">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
             <div class="block-27">
               <ul>
                 <li><a href="#">&lt;</a></li>
@@ -300,6 +331,55 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+  $( document ).ready(function() {
+    $( "#refresh-subscribeform" ).submit(function( event ) {
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      var getEmail= $( "#email" ).val();
+      if(regex.test(getEmail)){
+        var userValues = {
+           "sessionrecording":$( "#sessionrecording" ).val(),
+           "email": $( "#email" ).val()
+         };
+         window.FMApi = window.FMApi || [];
+         console.log(userValues,"userValues--->")
+         window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289FE5F9EDA270E55BDEE914CE992724A79FF9FE58FF911EDD398FFBF237B0D765314EF148FC71C477BEDB742FB58FAAC27E", userValues);
+      }
+      else{
+        console.log("Not success");
+        event.preventDefault();
+      }
+    });
+  });
 
+  function setSessionURL() {
+      var sessionField = document.querySelector("#sessionrecording");
+
+      function callback() {
+        FM.getCurrentSessionURL(function(status, url) {
+              sessionField.value = url;
+              console.log("### Session Recording URL #### ", url);
+        });
+      }
+
+      if(!FM || !FM.getCurrentSessionURL) {
+          window.setTimeout(setSessionURL, 500);
+          return;
+      }
+
+      callback();
+
+  }
+
+
+  if(document.readyState === "completed") {
+      setSessionURL();
+  } else {
+    window.addEventListener("load", function() {
+      setSessionURL();
+    });
+  }
+
+  </script>
   </body>
 </html>
