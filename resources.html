@@ -375,12 +375,19 @@
            "email": $( "#email" ).val()
          };
          window.FMApi = window.FMApi || [];
-         console.log(userValues,"userValues--->")
-         window.FMApi.push("fm_form_tracking", "B7F37371276E5DC7A472859EC240289F05DCDFCEE8577CE2934DA6DA408D0DCA248010477E5A7A16833305B300713D627F6E4CC2448987FFA70360E613412D65", userValues);
+         window.FMApi.push("fm_form_tracking", "D93D282A496FBBD0B5CEFB70D122742933F918085D60C92006C392325662A19B43F4D42152FF5DD8F2777A9FC2E52BCBB0F370166E3C0038311A255B468268C8", userValues);
+
+         FM.trackCustomEvent("Downloaded White Paper",
+         {
+         "email": $( "#email" ).val(),
+         "agent": "agent1@agent.com",
+         "property": "beverly hills",
+         "country": "USA"
+         })
+
          $('.refresh-subscribeform').submit();
          $('.tq-message').addClass('showMessage');
          return false;
-
       }
       else{
         console.log("Not success");
