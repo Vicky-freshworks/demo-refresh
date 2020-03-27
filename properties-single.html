@@ -397,62 +397,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
-  $(document).ready(function(){
-    //alert('samraj');
-const getQueryParams = ( params, url ) => {
-
-  let href = url;
-  //this expression is to get the query strings
-  let reg = new RegExp( '[?&]' + params + '=([^&#]*)', 'i' );
-  let queryString = reg.exec(href);
-  return queryString ? queryString[1] : null;
-};
-
-let getEmailId = getQueryParams('email', window.location.href);
-if(getEmailId){
-  $('.fm-showSec').addClass('displayShow');
-  $('.sometime-hide').addClass('displayNone');
-  // let checkAllready = getCookie('fmAssociate')
-  // if(checkAllready)
-  document.cookie = "fmAssociate="+getEmailId;
-}
-
-
-
-function getCookie(name) {
-  var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  if (match) return match[2];
-}
-let checkExists = getCookie('fmAssociate')
-
-if(checkExists){
-  $('.sometime-hide').addClass('displayNone');
-  $('.fm-showSec').addClass('displayShow');
-}
-
-
-$('#fm-buy,#fm-rent').click(function(){
-  let reffEmailID = getCookie('fmAssociate')
-  debugger
-  if(reffEmailID){
-    var event_name = 'Looking to Rent';
-    var sample_event_properties = {
-     'title': 'Looking to Rent',
-     'email': reffEmailID
-     };
-     console.log(reffEmailID,"Email!!")
-     freshsales.trackEvent(event_name,  sample_event_properties, function(response){
-              console.log("Succeeded to push to Freshsales!!", response);
-            }, function(response){
-              console.log("Failed to push to Freshsales!!", response);
-            });
-  }
-
-})
-
-
-    })
-    </script>
+  <script src="js/custom.js"></script>
   </body>
 </html>
