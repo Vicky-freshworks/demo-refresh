@@ -14,7 +14,7 @@ $('.fm-showSec').addClass('displayShow');
 $('.sometime-hide').addClass('displayNone');
 // let checkAllready = getCookie('fmAssociate')
 // if(checkAllready)
-document.cookie = "fmAssociate="+getEmailId;
+document.cookie = "fmAssociate="+decodeURIComponent(getEmailId);
 }
 
 
