@@ -441,7 +441,11 @@ $('#fm-buy,#fm-rent').click(function(){
      'email': reffEmailID
      };
      var event_name = 'Looking to Rent';
-     freshsales.trackEvent(event_name,  sample_event_properties);
+     freshsales.trackEvent(event_name,  sample_event_properties, function(response){
+              console.log("Succeeded to push to Freshsales!!", response);
+            }, function(response){
+              console.log("Failed to push to Freshsales!!", response);
+            });
   }
 
 })
