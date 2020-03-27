@@ -436,11 +436,12 @@ $('#fm-buy,#fm-rent').click(function(){
   let reffEmailID = getCookie('fmAssociate')
   debugger
   if(reffEmailID){
+    var event_name = 'Looking to Rent';
     var sample_event_properties = {
      'title': 'Looking to Rent',
      'email': reffEmailID
      };
-     var event_name = 'Looking to Rent';
+     console.log(reffEmailID,"Email!!")
      freshsales.trackEvent(event_name,  sample_event_properties, function(response){
               console.log("Succeeded to push to Freshsales!!", response);
             }, function(response){
