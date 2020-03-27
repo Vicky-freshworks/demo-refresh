@@ -45,6 +45,13 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
+
+  <style>
+  .w120{
+    width: 120px;
+  }
+  </style>
+
   <body>
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -89,7 +96,11 @@
       				<div class="img" style="background-image: url(images/work-1.jpg);"></div>
       				<div class="text text-center">
       					<span class="subheading">Oakland</span>
-      					<h2>The Blue Sky Home</h2>
+                <div class="fm-showSec">
+      					<h2>Looking to</h2>
+                <button id="fm-buy" class="btn px-4 btn-primary col-md-3 w120">Buy</button>
+                <button id="fm-rent" class="btn px-4 btn-primary col-md-3 w120">Rent</button>
+              </div>
       				</div>
       			</div>
       		</div>
@@ -379,6 +390,39 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+  $(document).ready(function(){
+    //alert('samraj');
+const getQueryParams = ( params, url ) => {
 
+  let href = url;
+  //this expression is to get the query strings
+  let reg = new RegExp( '[?&]' + params + '=([^&#]*)', 'i' );
+  let queryString = reg.exec(href);
+  return queryString ? queryString[1] : null;
+};
+
+let getEmailId = getQueryParams('email', window.location.href);
+if(getEmailId){
+  document.cookie = "fmAssociate="+getEmailId;
+}
+function getCookie(name) {
+  var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) return match[2];
+}
+$('#fm-buy,#fm-rent').click(function(){
+  let reffEmailID = getCookie('fmAssociate')
+  if(reffEmailID){
+    FM.trackCustomEvent("Buy Product",
+    {
+    "email":reffEmailID ,
+    "price": 100.21
+    })
+  }
+
+
+})
+    })
+    </script>
   </body>
 </html>
