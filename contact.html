@@ -240,15 +240,24 @@
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var getEmail= $( "#email" ).val();
       if(regex.test(getEmail)){
-        var userValues = {
-           "subject": $( "#subject" ).val(),
-           "name":$( "#name" ).val(),
-           "sessionrecording":$( "#sessionrecording" ).val(),
-           "message":$( "#message" ).val(),
-           "email": $( "#email" ).val()
-         };
-         window.FMApi = window.FMApi || [];
-         window.FMApi.push("fm_form_tracking", "D93D282A496FBBD0B5CEFB70D1227429DBE5E17729F8B98F6FB126A94326A1EE43F4D42152FF5DD8F2777A9FC2E52BCBF3CBF7388805A3CACEE84F9C69D535D2", userValues);
+
+        var new_contact = {
+              'Last name': $( "#name" ).val(),  //Replace with Your Name content
+              'Email': $( "#email" ).val(), //Replace with You Email
+              'fs_contact':true,
+            };
+            var identifier = $( "#email" ).val(); //Replace with You Email
+            freshsales.identify(identifier, new_contact);
+
+        // var userValues = {
+        //    "subject": $( "#subject" ).val(),
+        //    "name":$( "#name" ).val(),
+        //    "sessionrecording":$( "#sessionrecording" ).val(),
+        //    "message":$( "#message" ).val(),
+        //    "email": $( "#email" ).val()
+        //  };
+         // window.FMApi = window.FMApi || [];
+         // window.FMApi.push("fm_form_tracking", "D93D282A496FBBD0B5CEFB70D1227429DBE5E17729F8B98F6FB126A94326A1EE43F4D42152FF5DD8F2777A9FC2E52BCBF3CBF7388805A3CACEE84F9C69D535D2", userValues);
       }
       else{
         console.log("Not success");
