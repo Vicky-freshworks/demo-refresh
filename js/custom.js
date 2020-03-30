@@ -36,6 +36,7 @@ let reffEmailID = getCookie('fmAssociate')
 debugger
 
 if(reffEmailID){
+  FM.associateVisitor(reffEmailID)
   FM.trackCustomEvent("Looking to Buy",
   {
   "email": reffEmailID,
