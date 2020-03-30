@@ -56,6 +56,24 @@
   .displayShow{
     display: block;
   }
+  .tq-message {
+    margin: 20px auto 10px;
+    padding: 10px;
+    position: relative;
+    background: #e86ed0;
+    border-radius: 5px;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s ease;
+    height: 0;
+}
+.showMessage{
+  opacity: 1;
+  visibility: visible;
+  transition: .5s ease;
+  height: auto;
+}
   </style>
 
   <body>
@@ -108,6 +126,11 @@
                 <button id="fm-buy" class="btn px-4 btn-primary col-md-3 w120">Buy</button>
                 <button id="fm-rent" class="btn px-4 btn-primary col-md-3 w120">Rent</button>
               </div>
+              <div>
+                <div class="tq-message col-md-4">
+                  <span>Thanks for your interest.</span></br>
+                  <span>We will reach out to you soon.</span>
+                </div>
       				</div>
       			</div>
       		</div>

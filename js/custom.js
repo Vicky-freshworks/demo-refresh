@@ -38,9 +38,13 @@ if(reffEmailID){
   FM.associateVisitor(reffEmailID)
   FM.trackCustomEvent(eventName,
   {
-  "email": reffEmailID,
-  "price": 100.21,
+    "email": reffEmailID,
+    "price": 100.21
   })
+  $('.tq-message').addClass('showMessage');
+  setTimeout(function(){
+    $('.tq-message').removeClass('showMessage');
+  },2000)
 }
   })
 })
