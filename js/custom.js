@@ -37,7 +37,7 @@ debugger
 
 if(reffEmailID){
   FM.associateVisitor(reffEmailID)
-  FM.trackCustomEvent("Looking to Buy",
+  FM.trackCustomEvent("Looking to Rent",
   {
   "email": reffEmailID,
   "price": 100.21,
