@@ -33,7 +33,6 @@ $('.fm-showSec').addClass('displayShow');
 
 $('#fm-buy,#fm-rent').click(function(e){
 let reffEmailID = getCookie('fmAssociate')
-debugger
 let eventName = (event.target.id === "fm-rent")?"Looking to Rent":"Looking to Buy";
 if(reffEmailID){
   FM.associateVisitor(reffEmailID)
