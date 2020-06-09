@@ -209,7 +209,18 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
-
+<script>
+$(document).ready(function(){
+setTimeout(function(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get('email')
+  console.log('product',product);
+  FM.associateVisitor(product);
+  console.log("success");
+},5000)
+})
+</script>
 
   </body>
 </html>
