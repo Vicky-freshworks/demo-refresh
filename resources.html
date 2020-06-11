@@ -386,10 +386,11 @@
     $( "#subscribe" ).click(function( event ) {
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var getEmail= $( "#email" ).val();
+      var nameget= getEmail.split('@')[0];
       if(regex.test(getEmail)){
         var new_contact = {
-              'Last name': $( "#name" ).val(),  //Replace with Your Name content
-              'Email': $( "#email" ).val(), //Replace with You Email
+              'Last name': nameget,  //Replace with Your Name content
+              'Email': getEmail, //Replace with You Email
               'sessionrecording':$( "#sessionrecording" ).val(), // Session url
               'fs_contact':true,
             };
@@ -406,7 +407,7 @@
          FM.associateVisitor($( "#email" ).val());
          FM.trackCustomEvent("Downloaded White Paper",
          {
-         "email": $( "#email" ).val(),
+         "email": getEmail,
          "agent": "agent1@agent.com",
          "property": "beverly hills",
          "country": "USA",
