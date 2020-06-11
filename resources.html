@@ -396,15 +396,16 @@
             };
             var identifier = $( "#email" ).val(); //Replace with You Email
             freshsales.identify(identifier, new_contact);
-          debugger
 
         var userValues = {
            "sessionrecording":$( "#sessionrecording" ).val(),
            "email": $( "#email" ).val()
          };
-         window.FMApi = window.FMApi || [];
-         window.FMApi.push("fm_form_tracking", "D93D282A496FBBD0B5CEFB70D122742933F918085D60C92006C392325662A19B43F4D42152FF5DD8F2777A9FC2E52BCBB0F370166E3C0038311A255B468268C8", userValues);
-         FM.associateVisitor($( "#email" ).val());
+         // window.FMApi = window.FMApi || [];
+         // window.FMApi.push("fm_form_tracking", "D93D282A496FBBD0B5CEFB70D122742933F918085D60C92006C392325662A19B43F4D42152FF5DD8F2777A9FC2E52BCBB0F370166E3C0038311A255B468268C8", userValues);
+         setTimeout(function(){
+           FM.associateVisitor(getEmail);
+           console.log("success");
          FM.trackCustomEvent("Downloaded White Paper",
          {
          "email": getEmail,
@@ -413,7 +414,7 @@
          "country": "USA",
          "sessionURL":$( "#sessionrecording" ).val()
          })
-
+   },5000)
          $('.refresh-subscribeform').submit();
          $('.tq-message').addClass('showMessage');
          return false;
