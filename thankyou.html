@@ -240,5 +240,19 @@
     <!-- Java script-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+    $(document).ready(function(){
+      debugger
+    setTimeout(function(){
+      debugger
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const product = urlParams.get('signup-email')
+      console.log('product',product);
+      FM.associateVisitor(product);
+      console.log("success");
+    },5000)
+    })
+    </script>
   </body>
 </html>
