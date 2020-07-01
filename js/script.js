@@ -984,6 +984,7 @@
 					error: function (result) {
 						if (isNoviBuilder)
 							return;
+							debugger
 
 						var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
 							form = $(plugins.rdMailForm[this.extraData.counter]);
@@ -996,6 +997,7 @@
 						}
 					},
 					success: function (result) {
+						debugger
 						if (isNoviBuilder)
 							return;
 
@@ -1121,7 +1123,7 @@
 		function lgMod1 ( initSelector ) {
 			var slides, currentSlide, currentIndex;
 
-			initSelector.on( 'onAfterSlide.lg', function ( event ) { 
+			initSelector.on( 'onAfterSlide.lg', function ( event ) {
 				slides = document.querySelector( '.lg-inner' ).children;
 
 				for ( var i = 0; i < slides.length; i++ ) {
