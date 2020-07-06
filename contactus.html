@@ -360,9 +360,7 @@ transition: .5s ease;
                 "country": "USA",
                 "sessionURL":$( "#sessionrecording" ).val()
                 })
-                window.fcWidget.user.setLastName(nameget);
-                window.fcWidget.user.setEmail(getEmail);
-                window.fcWidget.user.create();
+                window.fcWidget.user.create(getEmail)
                 console.log("success");
               },5000)
               $('.rd-mailform2').submit();
