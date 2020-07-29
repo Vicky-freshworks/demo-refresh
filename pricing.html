@@ -42,6 +42,33 @@
     host: "https://wchat.myfreshworks.com"
   });
 </script><!-- Page-->
+<style>
+  .fm-popup-model{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    top: 0px;
+    z-index: 100000;
+    display: none;
+  }
+  .fm-popupwrap{
+    width: 500px;
+    height: 200px;
+    background: #fff;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+  }
+  .fm-show{
+    display: block;
+  }
+</style>
+
     <div class="page text-center">
       <!-- Page Header-->
       <header class="page-header">
@@ -202,7 +229,7 @@
                       <li>Basic Customer Support</li>
                     </ul>
                   </div>
-                </div><a class="button button-block button-primary" href="#">BOOK NOW</a>
+                </div><button class="button button-block button-primary" >BOOK NOW</button>
               </div>
             </div>
             <div class="col-sm-8 col-md-5 col-lg-3">
@@ -228,7 +255,7 @@
                       <li>24/7 Customer Support</li>
                     </ul>
                   </div>
-                </div><a class="button button-block button-primary" href="#">BOOK NOW</a>
+                </div><button class="button button-block button-primary" >BOOK NOW</button>
               </div>
             </div>
             <div class="col-sm-8 col-md-5 col-lg-3">
@@ -254,7 +281,7 @@
                       <li>Extended Customer Support</li>
                     </ul>
                   </div>
-                </div><a class="button button-block button-primary" href="#">BOOK NOW</a>
+                </div><button class="button button-block button-primary" >BOOK NOW</button>
               </div>
             </div>
             <div class="col-sm-8 col-md-5 col-lg-3">
@@ -280,7 +307,7 @@
                       <li>Personal Customer Support</li>
                     </ul>
                   </div>
-                </div><a class="button button-block button-primary" href="#">BOOK NOW</a>
+                </div><button class="button button-block button-primary" >BOOK NOW</button>
               </div>
             </div>
           </div>
@@ -288,91 +315,7 @@
         <div class="container container-lg">
           <hr class="hr bg-gray-lighter">
         </div>
-        <div class="container section-top-65">
-          <h3>Get The Right Value</h3>
-          <p>3 different pricing plans</p>
-          <div class="row row-50 justify-content-sm-center">
-            <div class="col-sm-9 col-md-7 col-lg-4">
-              <!-- Box Pricing-->
-              <div class="box-pricing">
-                <div class="box-pricing-inner">
-                  <div class="box-pricing-label">
-                    <svg class="box-pricing-svg" viewbox="0 0 86 86">
-                      <path style="fill:#2dc2b4;" d="m 0.18220359,63.058649 0,-22.759147 20.25893341,-20.240853 20.258932,-20.24085223 22.741068,0 22.74107,0 0,3.00000003 c 0,2.718907 -0.305,3 -3.25507,3 -2.94829,0 -6.74123,3.487112 -40.244933,37.0000002 -20.344425,20.35 -36.4296454,37 -35.7449324,37 0.716591,0 1.244932,1.27318 1.244932,3 0,2.833333 -0.222222,3 -4,3 l -4.00000001,0 0,-22.759148 z"></path>
-                    </svg><span>TOP RATED</span>
-                  </div>
-                  <p class="font-weight-bold text-ubold text-uppercase text-black text-big">ECONOMY</p>
-                  <div class="box-pricing-price text-primary"><sup>$</sup><span>8</span><sub>/mo</sub></div>
-                  <p class="text-extra-small text-silver-chalice">provides up to 3 leading <br class="d-none d-xl-inline-block"> travel specialists</p>
-                  <hr class="hr bg-gallery">
-                  <div class="d-inline-block">
-                    <!-- List Inline-->
-                    <ul class="list list-12 list-marked-icon text-black text-small text-left">
-                      <li>3 Star Hotels</li>
-                      <li>No Money Back Guarantee</li>
-                      <li>Economy Class Flight</li>
-                      <li>Regular Flights</li>
-                      <li>Basic Customer Support</li>
-                    </ul>
-                  </div>
-                </div><a class="button button-block button-primary text-spacing-300" href="#">BOOK NOW</a>
-              </div>
-            </div>
-            <div class="col-sm-9 col-md-7 col-lg-4">
-              <!-- Box Pricing-->
-              <div class="box-pricing active">
-                <div class="box-pricing-inner">
-                  <div class="box-pricing-label">
-                    <svg class="box-pricing-svg" viewbox="0 0 86 86">
-                      <path style="fill:#2dc2b4;" d="m 0.18220359,63.058649 0,-22.759147 20.25893341,-20.240853 20.258932,-20.24085223 22.741068,0 22.74107,0 0,3.00000003 c 0,2.718907 -0.305,3 -3.25507,3 -2.94829,0 -6.74123,3.487112 -40.244933,37.0000002 -20.344425,20.35 -36.4296454,37 -35.7449324,37 0.716591,0 1.244932,1.27318 1.244932,3 0,2.833333 -0.222222,3 -4,3 l -4.00000001,0 0,-22.759148 z"></path>
-                    </svg><span>TOP RATED</span>
-                  </div>
-                  <p class="font-weight-bold text-ubold text-uppercase text-black text-big">BUSINESS</p>
-                  <div class="box-pricing-price text-primary"><sup>$</sup><span>12</span><sub>/mo</sub></div>
-                  <p class="text-extra-small text-silver-chalice">provides up to 5 leading <br class="d-none d-xl-inline-block"> travel specialists</p>
-                  <hr class="hr bg-gallery">
-                  <div class="d-inline-block">
-                    <!-- List Inline-->
-                    <ul class="list list-12 list-marked-icon text-black text-small text-left">
-                      <li>4 Star Hotels</li>
-                      <li>15 Days Money Back</li>
-                      <li>Business Class Flight</li>
-                      <li>Special Flights</li>
-                      <li>24/7 Customer Support</li>
-                    </ul>
-                  </div>
-                </div><a class="button button-block button-primary text-spacing-300" href="#">BOOK NOW</a>
-              </div>
-            </div>
-            <div class="col-sm-9 col-md-7 col-lg-4">
-              <!-- Box Pricing-->
-              <div class="box-pricing">
-                <div class="box-pricing-inner">
-                  <div class="box-pricing-label">
-                    <svg class="box-pricing-svg" viewbox="0 0 86 86">
-                      <path style="fill:#2dc2b4;" d="m 0.18220359,63.058649 0,-22.759147 20.25893341,-20.240853 20.258932,-20.24085223 22.741068,0 22.74107,0 0,3.00000003 c 0,2.718907 -0.305,3 -3.25507,3 -2.94829,0 -6.74123,3.487112 -40.244933,37.0000002 -20.344425,20.35 -36.4296454,37 -35.7449324,37 0.716591,0 1.244932,1.27318 1.244932,3 0,2.833333 -0.222222,3 -4,3 l -4.00000001,0 0,-22.759148 z"></path>
-                    </svg><span>TOP RATED</span>
-                  </div>
-                  <p class="font-weight-bold text-ubold text-uppercase text-black text-big">GOLD</p>
-                  <div class="box-pricing-price text-primary"><sup>$</sup><span>35</span><sub>/mo</sub></div>
-                  <p class="text-extra-small text-silver-chalice">provides up to 7 leading <br class="d-none d-xl-inline-block"> travel specialists</p>
-                  <hr class="hr bg-gallery">
-                  <div class="d-inline-block">
-                    <!-- List Inline-->
-                    <ul class="list list-12 list-marked-icon text-black text-small text-left">
-                      <li>5 Star Hotels</li>
-                      <li>30 Days Money Back</li>
-                      <li>First Class Flight</li>
-                      <li>Direct Flights</li>
-                      <li>Extended Customer Support</li>
-                    </ul>
-                  </div>
-                </div><a class="button button-block button-primary text-spacing-300" href="#">BOOK NOW</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
       <!-- Page Footer-->
       <footer class="page-footer footer-default section-top-80 section-bottom-34 section-lg-bottom-15 text-md-left">
         <div class="container">
@@ -513,8 +456,64 @@
         </div>
       </div>
     </div>
+    <div class="fm-popup-model">
+      <div class="fm-popupwrap">
+        <p style="
+    font-size: 20px;
+    color: #000;
+    padding: 40px 20px 20px 20px;
+">Thank you for choosing to travel with us!</p>
+        <div style="
+    width: 300px;
+    margin: 40px auto 10px;
+">
+          <button id="cancel" class="say" style="
+    padding: 7px 15px;
+    border: 2px solid #ff9f1c;
+    background: #fff;
+    width: 130px;
+">Cancel</button>
+          <button id="pay" class="say button-primary" style="
+    border: none;
+    padding: 7px 15px;
+">Make payment</button>
+        </div>
+      </div>
+    </div>
     <!-- Java script-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+      $(document).ready(function(){
+        var eventName = "";
+        var emailId = "david.thompson@sample.com";
+        $('.button').click(function(){
+          $('.fm-popup-model').toggleClass('fm-show');
+        })
+
+        $('.say').click(function(event){
+         var getId= event.target.id;
+         debugger
+         if(getId === "pay"){
+           eventName = "Payment Success";
+           $('.fm-popup-model').toggleClass('fm-show');
+         }
+         else{
+           eventName = "Abandoned Cart";
+           $('.fm-popup-model').toggleClass('fm-show');
+         }
+         FM.associateVisitor(emailId);
+         FM.trackCustomEvent(eventName,
+         {
+         "email": getEmail,
+         "price": 100,
+         "country": "USA",
+         "sessionURL":$( "#sessionrecording" ).val(),
+         })
+        })
+
+
+      })
+    </script>
   </body>
 </html>
