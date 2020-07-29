@@ -486,7 +486,7 @@
     <script>
       $(document).ready(function(){
         var eventName = "";
-        var emailId = "david.thompson@sample.com";
+         emailId = "david.thompson@sample.com";
         $('.button').click(function(){
           $('.fm-popup-model').toggleClass('fm-show');
         })
@@ -502,10 +502,10 @@
            eventName = "Abandoned Cart";
            $('.fm-popup-model').toggleClass('fm-show');
          }
-         FM.associateVisitor(emailId);
+         FM.associateVisitor("david.thompson@sample.com");
          FM.trackCustomEvent(eventName,
          {
-         "email": getEmail,
+         "email": "david.thompson@sample.com",
          "price": 100,
          "country": "USA",
          "sessionURL":$( "#sessionrecording" ).val(),
