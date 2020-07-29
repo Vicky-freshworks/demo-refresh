@@ -17,10 +17,10 @@
       function initFreshChat() {
         window.fcWidget.init({
           token: "7c18eec4-2b3e-4589-bb61-76f46662c3fb",
-          host: "https://wchat.freshchat.com"
+          host: "https://wchat.myfreshworks.com"
         });
       }
-      function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}
+      function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.myfreshworks.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}
       function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
     </script>
 
@@ -50,15 +50,15 @@
 <!-- <script>
   window.fcSettings = {
     token: "ad87c7c3-8da8-4891-8cba-baac6af773f7",
-    host: "https://wchat.freshchat.com"
+    host: "https://wchat.myfreshworks.com"
   };
 </script>
-<script src="https://wchat.freshchat.com/js/widget.js" async></script> -->
+<script src="https://wchat.myfreshworks.com/js/widget.js" async></script> -->
 <!-- End freshchat  -->
 
 
 <script type="text/javascript" id="">var cid="",payload="",gaId="UA-87255532-1";try{for(var trackers=ga.getAll(),t=0;t<trackers.length;t++)if(trackers[t].get("trackingId")===gaId){var trackerName=trackers[t].get("name");cid=trackers[t].get("clientId");break}}catch(b){console.log(b)}payload="?v\x3d1\x26t\x3dpageview\x26tid\x3d"+gaId+"\x26cid\x3d"+cid+"\x26dl\x3dhttps%3A%2F%2Ffreshworks.com%2Ffreshcaller-cloud-pbx%2Fsignup%2Fchat-thank-you\x26z\x3d"+Math.round(1E6*Math.random());
-window.fcSettings={token:"f85a28ef-098f-45e1-93a5-105bf9f31903",host:"https://wchat.freshchat.com",locale:"en",meta:{ga_url:"https://www.google-analytics.com/collect"+payload},tags:["freshcaller"],config:{headerProperty:{appName:"Freshcaller",appLogo:"https://s3.amazonaws.com/fone-frontend/production/assets/images/logo-83761dc32efdbdbcf635f564eb568628.svg",backgroundColor:"#cc4783",foregroundColor:"#ffffff",backgroundImage:"https://wchat.freshchat.com/assets/images/texture_background_1-bdc7191884a15871ed640bcb0635e7e7.png"}},
+window.fcSettings={token:"f85a28ef-098f-45e1-93a5-105bf9f31903",host:"https://wchat.myfreshworks.com",locale:"en",meta:{ga_url:"https://www.google-analytics.com/collect"+payload},tags:["freshcaller"],config:{headerProperty:{appName:"Freshcaller",appLogo:"https://s3.amazonaws.com/fone-frontend/production/assets/images/logo-83761dc32efdbdbcf635f564eb568628.svg",backgroundColor:"#cc4783",foregroundColor:"#ffffff",backgroundImage:"https://wchat.myfreshworks.com/assets/images/texture_background_1-bdc7191884a15871ed640bcb0635e7e7.png"}},
 onInit:function(){window.fcWidget.on("widget:loaded",function(b){window.fcWidget.on("user:created",function(a){console.log("User created.");console.log(a);ga(trackerName+".send","event","Freshchat widget","User Create",a.action,{nonInteraction:!0})});window.fcWidget.on("widget:opened",function(a){console.log("Widget Opened");ga(trackerName+".send","event","Freshchat widget","Widget Open","widget_open",{nonInteraction:!0})});window.fcWidget.on("widget:closed",function(a){console.log("Widget Closed");
 ga(trackerName+".send","event","Freshchat widget","Widget Closed","widget_closed",{nonInteraction:!0})})})}};</script>
 
