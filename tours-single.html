@@ -540,10 +540,10 @@
                           <p style="padding-bottom:20px;">Select participants and date</p>
                           <div>
                             <div class="form-wrap form-wrap-xs col-md-3" style="padding-left: 0; padding-right: 0;">
-                              <input class="form-input text-regular form-control-last-child" placeholder="Adult" id="questions-contact-mobile" type="number" name="mobile" style="padding: 6px 6px 6px 30px;"><span class="form-validation"></span>
+                              <input class="form-input text-regular form-control-last-child" placeholder="Adult" id="questions-contact-mobile" type="number" name="adult" style="padding: 6px 6px 6px 30px;"><span class="form-validation"></span>
                             </div>
                             <div class="form-wrap form-wrap-xs col-md-3" style="padding-right: 0px;padding-left: 0;margin-left: 10px;">
-                              <input class="form-input text-regular form-control-last-child" placeholder="Children" id="questions-contact-mobile" type="number" name="mobile" style="padding: 6px 6px 6px 30px;"><span class="form-validation"></span>
+                              <input class="form-input text-regular form-control-last-child" placeholder="Children" id="questions-contact-mobile" type="number" name="child" style="padding: 6px 6px 6px 30px;"><span class="form-validation"></span>
                             </div>
                             <div class="col-md-5" style="padding-right: 0;">
                             <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
@@ -554,10 +554,10 @@
                           </div>
                           <div class="overflow-hidden col-md-12 d-flex justify-content-center justify-content-between " style="margin-top:40px;">
                           <div class="text-center text-md-center">
-                            <button class="button1 button-width-110 " id="contactform">Cancel</button>
+                            <button class="button1 button-width-110 say" id="cancel">Cancel</button>
                           </div>
                           <div class="text-center text-md-center">
-                            <button class="button1 button-width-110 button-primary" id="contactform">make Payment</button>
+                            <button class="button1 button-width-110 button-primary say" id="pay">make Payment</button>
                           </div>
                         </div>
                       </div>
@@ -607,8 +607,10 @@
         })
         $("#datepicker").datepicker({
               autoclose: true,
-              todayHighlight: true
+              todayHighlight: true,
+              dateFormat: 'dd-mm-yy',
         }).datepicker('update', new Date());
+
         var mm = $(".form-control").val()
         console.log(mm);
 
@@ -622,21 +624,39 @@
 
         $('.say').click(function(event){
          var getId= event.target.id;
+         var getName = $("input[name='name']").val();
+         var getEmail = $("input[name='email']").val();
+         var getMobile = $("input[name='mobile']").val();
+         var getAdult = $("input[name='adult']").val();
+         var getChild = $("input[name='child']").val();
+         var dateObj = $("#datepicker").datepicker('getDate');
+         // var dateObj = new Date();
+          var month = dateObj.getUTCMonth() + 1; //months from 1-12
+          var day = dateObj.getUTCDate() + 1;
+          var year = dateObj.getUTCFullYear();
+          var date = month + "-" + day + "-" + year;
          debugger
+         $("#datepicker").val();
          if(getId === "pay"){
-           eventName = "Payment Success";
+           eventName = "Make Payment";
            $('.fm-popup-model').toggleClass('fm-show');
          }
          else{
            eventName = "Abandoned Cart";
            $('.fm-popup-model').toggleClass('fm-show');
          }
-         FM.associateVisitor("david.thompson@sample.com");
+         FM.associateVisitor(getEmail);
          FM.trackCustomEvent(eventName,
          {
-         "email": "david.thompson@sample.com",
-         "price": 100,
-         "country": "USA",
+         "name": getName,
+         "email": getEmail,
+         "package name": "Eastern Europe tour",
+         "price": '$2500',
+         "numberofpeople":{
+            "adult" : getAdult,
+            "child" : getChild,
+         },
+         "date": date,
          "sessionURL":$( "#sessionrecording" ).val(),
          })
         })
