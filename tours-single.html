@@ -632,6 +632,7 @@
         })
 
         $('.say').click(function(event){
+          debugger
          var getId= event.target.id;
          var getName = $("input[name='name']").val();
          var getEmail = $("input[name='email']").val();
@@ -657,7 +658,6 @@
            $('.step3').toggleClass('fm-show');
            // $('.fm-popup-model').toggleClass('fm-show');
          }
-         debugger
            var new_contact = {
               'Last name': getName,  //Replace with Your Name content
               'Email': getEmail, //Replace with You Email
