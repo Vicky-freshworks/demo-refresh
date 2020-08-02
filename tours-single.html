@@ -522,7 +522,7 @@
                           <input class="form-input text-regular " placeholder="Your Name"  type="text" name="name">
                         </div>
                         <div class="form-wrap form-wrap-xs">
-                          <input class="form-input text-regular " placeholder="Email"  type="email" name="email" >
+                          <input class="form-input text-regular " placeholder="Email"  type="email" name="emailName" >
                         </div>
                         <div class="form-wrap form-wrap-xs">
                           <input class="form-input text-regular " placeholder="Mobile" type="number" name="mobile">
@@ -609,6 +609,7 @@
           debugger
           $('.step1').toggleClass('fm-show');
           $('.step2').toggleClass('fm-show');
+          // var getEmail = $("input[name='emailName']").val();
           // e.preventDefault();
           //var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         })
@@ -635,7 +636,7 @@
           debugger
          var getId= event.target.id;
          var getName = $("input[name='name']").val();
-         var getEmail = $("input[name='email']").val();
+         var getEmail = $("input[name='emailName']").val();
          var getMobile = $("input[name='mobile']").val();
          var getAdult = $("input[name='adult']").val();
          var getChild = $("input[name='child']").val();
@@ -664,8 +665,8 @@
               'sessionrecording':$( "#sessionrecording" ).val(), // Session url
               'fs_contact':true,
             };
-            var identifier = $( "#email" ).val(); //Replace with You Email
-            freshsales.identify(identifier, new_contact);
+          //  var identifier = $( "#email" ).val(); //Replace with You Email
+            freshsales.identify(getEmail, new_contact);
 
             setTimeout(function(){
                FM.associateVisitor(getEmail);
