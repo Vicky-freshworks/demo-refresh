@@ -4,7 +4,7 @@
     <!-- Site Title-->
     <title>Tour Single</title>
     <!-- <script src="https://wchat.myfreshworks.com/js/widget.js"></script> -->
-    <script src='//cdn.freshmarketer.com/661145/1712271.js'></script>
+    <script src='//cdn.freshmarketer.com/669892/1721569.js'></script>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,13 +20,13 @@
 		<![endif]-->
     <!-- fsales js snippe-->
     <script> function createFcn(nm){(window.freshsales)[nm]=function(){(window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments,0)))}; } (function(url,appToken,formCapture){window.freshsales=window.freshsales||[];if(window.freshsales.length==0){list='init identify trackPageView trackEvent set'.split(' ');for(var i=0;i<list.length;i++){var nm=list[i];createFcn(nm);}var t=document.createElement('script');t.async=1;
-      t.src='https://d952cmcgwqsjf.cloudfront.net/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://marketingclouddemo.freshworks.com/crm/sales','f18d7cd6f4ae4424f784996343ed765062383135f92f1ee422a8d87cdaaa1ed3',false);}})();</script>
+      t.src='https://d952cmcgwqsjf.cloudfront.net/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://suntravel.freshworks.com/crm/sales','dd918a1d790771fd48e42ec532e34ce15c8616d33dc4296644bf8e1d9d96ba9b',false);}})();</script>
 
     <!-- fchat js snippet-->
     <script>
   function initFreshChat() {
     window.fcWidget.init({
-      token: "0ce04b83-76c9-4c22-b2fa-ee069bb820d4",
+      token: "198fe5e3-2d38-443c-a76a-1b636701e1ea",
       host: "https://wchat.myfreshworks.com"
     });
   }
@@ -42,7 +42,7 @@
 
   </head>
   <style>
-  .ui-to-top,.step2,.step1{
+  .ui-to-top,.step2,.step1,.step3,.step4{
     display: none;
   }
     .fm-popup-model{
@@ -561,6 +561,13 @@
                           </div>
                         </div>
                       </div>
+
+                      <div class="text-center overflow-hidden step3">
+                        <h5 class="text-ubold" >“Oops. What happened? Do you want to talk to our expert?”</h5>
+                      </div>
+                      <div class="text-center overflow-hidden step4">
+                        <h5 class="text-ubold" > “Whoa! We are so excited for your trip. Our tour expert will be reaching out to you soon”</h5>
+                      </div>
                     </div>
                     <div class="tq-message">
                       <p class="text-ubold" style="font-size: 24px;line-height: 33px;padding-bottom: 10px;">Thanks for writing us</p>
@@ -595,7 +602,7 @@
           // $('.step1').toggleClass('fm-show');
           // $('.step2').toggleClass('fm-show');
           $('.fm-popup-model').toggleClass('fm-show');
-
+          // $('.step3').toggleClass('fm-show');
         })
 
         $( "#contactform" ).click(function( e ) {
@@ -619,6 +626,8 @@
         $('.button').click(function(){
           $('.step1').addClass('fm-show');
           $('.step2').removeClass('fm-show');
+          $('.step3').removeClass('fm-show');
+          $('.step4').removeClass('fm-show');
           $('.fm-popup-model').toggleClass('fm-show');
         })
 
@@ -635,31 +644,47 @@
           var day = dateObj.getUTCDate() + 1;
           var year = dateObj.getUTCFullYear();
           var date = month + "-" + day + "-" + year;
-         debugger
          $("#datepicker").val();
          if(getId === "pay"){
            eventName = "Make Payment";
-           $('.fm-popup-model').toggleClass('fm-show');
+            $('.step2').toggleClass('fm-show');
+           $('.step4').toggleClass('fm-show');
+           // $('.fm-popup-model').toggleClass('fm-show');
          }
          else{
            eventName = "Abandoned Cart";
-           $('.fm-popup-model').toggleClass('fm-show');
+            $('.step2').toggleClass('fm-show');
+           $('.step3').toggleClass('fm-show');
+           // $('.fm-popup-model').toggleClass('fm-show');
          }
-         FM.associateVisitor(getEmail);
-         FM.trackCustomEvent(eventName,
-         {
-         "name": getName,
-         "email": getEmail,
-         "package name": "Eastern Europe tour",
-         "price": '$2500',
-         "numberofpeople":{
-            "adult" : getAdult,
-            "child" : getChild,
-         },
-         "date": date,
-         "sessionURL":$( "#sessionrecording" ).val(),
-         })
-        })
+         debugger
+           var new_contact = {
+              'Last name': getName,  //Replace with Your Name content
+              'Email': getEmail, //Replace with You Email
+              'sessionrecording':$( "#sessionrecording" ).val(), // Session url
+              'fs_contact':true,
+            };
+            var identifier = $( "#email" ).val(); //Replace with You Email
+            freshsales.identify(identifier, new_contact);
+
+            setTimeout(function(){
+               FM.associateVisitor(getEmail);
+               FM.trackCustomEvent(eventName,
+               {
+               "name": getName,
+               "email": getEmail,
+               "package name": "Eastern Europe tour",
+               "price": '$2500',
+               "numberofpeople":{
+                  "adult" : getAdult,
+                  "child" : getChild,
+               },
+               "date": date,
+               "sessionURL":$( "#sessionrecording" ).val(),
+               })
+
+              })
+            },5000)
 
 
       })
