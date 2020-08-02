@@ -610,7 +610,7 @@
           $('.step1').toggleClass('fm-show');
           $('.step2').toggleClass('fm-show');
           // e.preventDefault();
-          var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          //var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         })
         $("#datepicker").datepicker({
               autoclose: true,
@@ -618,8 +618,8 @@
               dateFormat: 'dd-mm-yy',
         }).datepicker('update', new Date());
 
-        var mm = $(".form-control").val()
-        console.log(mm);
+        // var mm = $(".form-control").val()
+        // console.log(mm);
 
         var eventName = "";
          emailId = "david.thompson@sample.com";
@@ -682,11 +682,8 @@
                "date": date,
                "sessionURL":$( "#sessionrecording" ).val(),
                })
-
-              })
             },5000)
-
-
+          })
       })
     </script>
   </body>
