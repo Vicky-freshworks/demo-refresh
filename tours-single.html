@@ -645,7 +645,7 @@
           var month = dateObj.getUTCMonth() + 1; //months from 1-12
           var day = dateObj.getUTCDate() + 1;
           var year = dateObj.getUTCFullYear();
-          var date = month + "-" + day + "-" + year;
+          var date = month+"/"+day+"/"+year;
          $("#datepicker").val();
          if(getId === "pay"){
            eventName = "Make Payment";
@@ -666,7 +666,7 @@
               "price": '$2500',
               "Adults (count)" : getAdult,
               "Children (count)" : getChild,
-              "Date of Travel": dateObj,
+              "Date of Travel": date,
               'sessionrecording':$( "#sessionrecording" ).val(), // Session url
               'fs_contact':true,
             };
