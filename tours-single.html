@@ -662,6 +662,11 @@
            var new_contact = {
               'Last name': getName,  //Replace with Your Name content
               'Email': getEmail, //Replace with You Email
+              "package name": "Eastern Europe tour",
+              "price": '$2500',
+              "Adults (count)" : getAdult,
+              "Children (count)" : getChild,
+              "Date of Travel": dateObj,
               'sessionrecording':$( "#sessionrecording" ).val(), // Session url
               'fs_contact':true,
             };
@@ -679,7 +684,6 @@
                "Adults (count)" : getAdult,
                "Children (count)" : getChild,
                "Date of Travel": dateObj,
-               "sessionURL":$( "#sessionrecording" ).val(),
                })
             },5000)
           })
