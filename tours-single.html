@@ -602,7 +602,6 @@
         })
 
         $( "#contactform" ).click(function( e ) {
-          debugger
           $('.step1').toggleClass('fm-show');
           $('.step2').toggleClass('fm-show');
           // var getEmail = $("input[name='emailName']").val();
@@ -629,7 +628,6 @@
         })
 
         $('.say').click(function(event){
-          debugger
          var getId= event.target.id;
          var getName = $("input[name='name']").val();
          var getEmail = $("input[name='emailName']").val();
@@ -653,6 +651,14 @@
            eventName = "Abandoned Cart";
             $('.step2').toggleClass('fm-show');
            $('.step3').toggleClass('fm-show');
+
+           // fchat trigger
+           if (window.fcWidget.isLoaded() == true) {
+  					window.fcWidget.track('abandoned_cart', {
+  						price: 2500,
+    					packageName: ‘Eastern Europe’
+          	});
+    		  }
            // $('.fm-popup-model').toggleClass('fm-show');
          }
            var new_contact = {
