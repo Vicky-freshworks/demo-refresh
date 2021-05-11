@@ -20323,6 +20323,49 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
+  /* css for chat widget */
+
+  .support, .sales{
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 0;
+    z-index: 999999;
+    border-radius: 100px 0 0 100px;
+    cursor: pointer;
+    color: white;
+  }
+  .support svg, .sales svg{
+    height: 32px;
+    width: 32px;
+    margin: 7px 14px 0 14px;
+    fill: white;
+  }
+  .support p, .sales p{
+    color: white;
+    text-align: center;
+    margin-top: 12px;
+    display: none;
+  }
+  .support{
+    background: #09b775;
+    top: 200px;
+  }
+  .support:hover p, .sales:hover p{
+    display: inline-block;
+  }
+  .support:hover, .sales:hover{
+    width: 200px;
+  }
+  .support:hover svg, .sales:hover svg{
+    margin: 0px 14px -7px 14px;
+  }
+  .sales{
+    background: #ffa800;
+    top: 260px;
+  }
+/* ends css for chat widget */
+
 @-webkit-keyframes lg-right-end {
   0%, 100% {
     left: 0; }
